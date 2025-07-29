@@ -32,7 +32,7 @@ function appendResponseCallback(data) {
       tableInformation = tableInformation + "</tr>";
     }
     tableInformation = tableInformation + "</table>";
-    document.getElementById("Information").innerHTML = tableInformation;
+document.getElementById("Information").textContent = tableInformation;
   } else {
     document.getElementById("Information").innerHTML = "Unable to Load Users";
   }
