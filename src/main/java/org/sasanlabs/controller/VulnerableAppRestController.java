@@ -39,7 +39,7 @@ public class VulnerableAppRestController {
      * @throws JsonProcessingException
      */
     @GetMapping
-    @RequestMapping("/allEndPoint")
+@RequestMapping(value = "/allEndPoint", method = RequestMethod.GET)
     public String allEndPoints() throws JsonProcessingException {
         return "<pre>"
                 + JSONSerializationUtils.serializeWithPrettyPrintJSON(
@@ -54,7 +54,7 @@ public class VulnerableAppRestController {
      * @throws JsonProcessingException
      */
     @GetMapping
-    @RequestMapping("/VulnerabilityDefinitions")
+@RequestMapping(value = "/VulnerabilityDefinitions", method = RequestMethod.GET)
     public List<VulnerabilityDefinition> getVulnerabilityDefinitions()
             throws JsonProcessingException {
         return getAllSupportedEndPoints.getVulnerabilityDefinitions();
@@ -72,7 +72,7 @@ public class VulnerableAppRestController {
      * @throws JsonProcessingException
      */
     @GetMapping
-    @RequestMapping("/allEndPointJson")
+@RequestMapping(value = "/allEndPointJson", method = RequestMethod.GET)
     public List<AllEndPointsResponseBean> allEndPointsJsonResponse()
             throws JsonProcessingException {
         return getAllSupportedEndPoints.getSupportedEndPoints();
@@ -87,7 +87,7 @@ public class VulnerableAppRestController {
      * @throws UnknownHostException
      */
     @GetMapping
-    @RequestMapping("/scanner")
+@RequestMapping(value = "/scanner", method = RequestMethod.GET)
     public List<ScannerResponseBean> getScannerRelatedInformation()
             throws JsonProcessingException, UnknownHostException {
         return getAllSupportedEndPoints.getScannerRelatedEndPointInformation();
@@ -102,7 +102,7 @@ public class VulnerableAppRestController {
      * @throws UnknownHostException
      */
     @GetMapping
-    @RequestMapping("/scanner/metadata")
+@RequestMapping(value = "/scanner/metadata", method = RequestMethod.GET)
     public ScannerMetaResponseBean getScannerRelatedMetaInformation() {
         return new ScannerMetaResponseBean(
                 Arrays.asList(VulnerabilityType.values()),
@@ -118,7 +118,7 @@ public class VulnerableAppRestController {
      * @throws JsonProcessingException
      * @throws UnknownHostException
      */
-    @RequestMapping("/sitemap.xml")
+@RequestMapping(value = "/sitemap.xml", method = RequestMethod.GET)
     public String sitemapForPassiveScanners() throws JsonProcessingException, UnknownHostException {
         List<AllEndPointsResponseBean> allEndPoints = allEndPointsJsonResponse();
         StringBuilder xmlBuilder =
